@@ -66,22 +66,27 @@ export function NetworkBackground({ color = "rgba(255, 255, 255, 0.5)" }: Networ
   
   // Initialize particles
   const initParticles = () => {
-    const particleCount = Math.min(Math.floor((window.innerWidth * window.innerHeight) / 8000), 150)
-    const newParticles: Particle[] = []
+    // Adjust particle count based on screen size for better mobile performance
+    const isMobile = window.innerWidth < 768;
+    const baseParticleCount = isMobile ? 50 : 150;
+    const densityFactor = isMobile ? 12000 : 8000;
+    
+    const particleCount = Math.min(Math.floor((window.innerWidth * window.innerHeight) / densityFactor), baseParticleCount);
+    const newParticles: Particle[] = [];
     
     for (let i = 0; i < particleCount; i++) {
       newParticles.push({
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-        size: Math.random() * 4 + 2, // Larger particles
+        vx: (Math.random() - 0.5) * (isMobile ? 0.3 : 0.5), // Slower movement on mobile
+        vy: (Math.random() - 0.5) * (isMobile ? 0.3 : 0.5), // Slower movement on mobile
+        size: Math.random() * 3 + (isMobile ? 1 : 2), // Smaller particles on mobile
         color: getRandomColor()
-      })
+      });
     }
     
-    setParticles(newParticles)
-  }
+    setParticles(newParticles);
+  };
   
   // Get random color
   const getRandomColor = () => {

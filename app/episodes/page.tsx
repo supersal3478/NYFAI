@@ -71,25 +71,25 @@ export default function EpisodesPage() {
       </div>
 
       {/* Floating orbs */}
-      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float-delay"></div>
+      <div className="absolute top-1/4 left-1/4 w-32 h-32 sm:w-64 sm:h-64 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-32 h-32 sm:w-64 sm:h-64 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float-delay"></div>
 
       {/* Subtle grid pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
 
       {/* Content */}
-      <div className="w-full max-w-4xl px-4 py-12 z-10">
+      <div className="w-full max-w-4xl px-4 py-8 sm:py-12 z-10">
         {/* Header */}
-        <div className="flex flex-col items-center mb-12">
+        <div className="flex flex-col items-center mb-8 sm:mb-12">
           <a
             href="/"
-            className="self-start mb-8 text-black hover:text-gray-700 transition-colors duration-200 flex items-center gap-1 font-medium"
+            className="self-start mb-6 sm:mb-8 text-black hover:text-gray-700 transition-colors duration-200 flex items-center gap-1 font-medium"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to home
           </a>
 
-          <div className="relative w-20 h-20 drop-shadow-glow mb-4">
+          <div className="relative w-16 h-16 sm:w-20 sm:h-20 drop-shadow-glow mb-3 sm:mb-4">
             <div className="absolute inset-0 bg-blue-500 rounded-full filter blur-xl opacity-30 animate-pulse"></div>
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/NEW%20NYFAI%20LOGO%20FINAL%20-gU3pQWhFgwDclY3Sgk9zlVTB5250H5.png"
@@ -100,27 +100,27 @@ export default function EpisodesPage() {
             />
           </div>
 
-          <h1 className="text-3xl md:text-4xl font-bold text-black text-center mb-2">Not Your Father's A.I. Show</h1>
-          <p className="text-black text-center max-w-2xl font-medium">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black text-center mb-2">Not Your Father's A.I. Show</h1>
+          <p className="text-sm sm:text-base text-black text-center max-w-2xl font-medium">
             Watch our episodes to learn how AI is transforming business and marketing
           </p>
         </div>
 
         {/* Episodes Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           {episodes.map((episode) => (
             <a key={episode.number} href={episode.link} target="_blank" rel="noopener noreferrer" className="group">
-              <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-white/50 p-6 transition-all duration-300 hover:shadow-xl hover:bg-white/95 hover:scale-[1.02]">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white font-bold">
+              <div className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg border border-white/50 p-4 sm:p-6 transition-all duration-300 hover:shadow-xl hover:bg-white/95 hover:scale-[1.02]">
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center text-white font-bold text-sm sm:text-base">
                     {episode.number}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors duration-200">
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-1 sm:mb-2 group-hover:text-blue-700 transition-colors duration-200">
                       {episode.title}
                     </h3>
-                    <div className="flex items-center text-purple-700 font-medium">
-                      <Play className="w-4 h-4 mr-1" />
+                    <div className="flex items-center text-purple-700 font-medium text-sm">
+                      <Play className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
                       Watch Episode {episode.number}
                     </div>
                   </div>
@@ -131,8 +131,8 @@ export default function EpisodesPage() {
         </div>
 
         {/* Footer */}
-        <div className="mt-12 text-center">
-          <p className="text-sm text-purple-800 font-medium">© {new Date().getFullYear()} NYFAI. All rights reserved.</p>
+        <div className="mt-8 sm:mt-12 text-center">
+          <p className="text-xs sm:text-sm text-purple-800 font-medium">© {new Date().getFullYear()} NYFAI. All rights reserved.</p>
         </div>
       </div>
     </div>
